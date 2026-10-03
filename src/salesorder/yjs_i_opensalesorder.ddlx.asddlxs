@@ -1,0 +1,103 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Open Sales Order',
+    typeNamePlural: 'Open Sales Orders',
+    title: { type: #STANDARD, value: 'SalesOrder' },
+    description: { type: #STANDARD, value: 'CustomerName' }
+  },
+  presentationVariant: [ { sortOrder: [ { by: 'GrossAmount', direction: #DESC } ],
+                           visualizations: [ { type: #AS_LINEITEM } ] } ]
+}
+annotate entity YJS_I_OpenSalesOrder with
+{
+  /* Object page sections */
+  @UI.facet: [
+    { id: 'Order',    purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Order',    label: 'Order',    position: 10 },
+    { id: 'Customer', purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Customer', label: 'Customer', position: 20 },
+    { id: 'Amounts',  purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, targetQualifier: 'Amounts',  label: 'Amounts',  position: 30 }
+  ]
+  @UI.hidden: true
+  SalesOrderUUID;
+
+  /* selectionField = filter bar (selection screen), lineItem = result list */
+  @EndUserText.label: 'Sales Order'
+  @UI: { selectionField: [ { position: 10 } ],
+         lineItem:       [ { position: 10, importance: #HIGH } ],
+         fieldGroup:     [ { qualifier: 'Order', position: 10 } ] }
+  SalesOrder;
+
+  @EndUserText.label: 'Customer'
+  @UI: { selectionField: [ { position: 20 } ],
+         lineItem:       [ { position: 20, importance: #HIGH } ],
+         fieldGroup:     [ { qualifier: 'Customer', position: 10 } ],
+         textArrangement: #TEXT_FIRST }
+  CustomerID;
+
+  @EndUserText.label: 'Customer Name'
+  @UI: { selectionField: [ { position: 30 } ] }
+  CustomerName;
+
+  @EndUserText.label: 'City'
+  @UI: { lineItem:   [ { position: 30, importance: #LOW } ],
+         fieldGroup: [ { qualifier: 'Customer', position: 20 } ] }
+  City;
+
+  @EndUserText.label: 'Country'
+  @UI: { selectionField: [ { position: 40 } ],
+         lineItem:       [ { position: 40, importance: #MEDIUM } ],
+         fieldGroup:     [ { qualifier: 'Customer', position: 30 } ] }
+  Country;
+
+  @EndUserText.label: 'Status'
+  @UI: { selectionField: [ { position: 50 } ],
+         lineItem:       [ { position: 50, importance: #HIGH, criticality: 'StatusCriticality' } ],
+         fieldGroup:     [ { qualifier: 'Order', position: 20, criticality: 'StatusCriticality' } ],
+         textArrangement: #TEXT_ONLY }
+  LifecycleStatus;
+
+  @EndUserText.label: 'Billing Status'
+  @UI: { selectionField: [ { position: 60 } ],
+         lineItem:       [ { position: 60, importance: #MEDIUM } ],
+         fieldGroup:     [ { qualifier: 'Order', position: 30 } ],
+         textArrangement: #TEXT_ONLY }
+  BillingStatus;
+
+  @EndUserText.label: 'Delivery Status'
+  @UI: { selectionField: [ { position: 70 } ],
+         lineItem:       [ { position: 70, importance: #MEDIUM } ],
+         fieldGroup:     [ { qualifier: 'Order', position: 40 } ],
+         textArrangement: #TEXT_ONLY }
+  DeliveryStatus;
+
+  @EndUserText.label: 'Created At'
+  @UI: { selectionField: [ { position: 80 } ],
+         lineItem:       [ { position: 80, importance: #LOW } ],
+         fieldGroup:     [ { qualifier: 'Order', position: 50 } ] }
+  CreatedAt;
+
+  @EndUserText.label: 'Gross Amount'
+  @UI: { lineItem:   [ { position: 90, importance: #HIGH } ],
+         fieldGroup: [ { qualifier: 'Amounts', position: 10 } ] }
+  GrossAmount;
+
+  @EndUserText.label: 'Net Amount'
+  @UI: { fieldGroup: [ { qualifier: 'Amounts', position: 20 } ] }
+  NetAmount;
+
+  @EndUserText.label: 'Tax Amount'
+  @UI: { fieldGroup: [ { qualifier: 'Amounts', position: 30 } ] }
+  TaxAmount;
+
+  @UI.hidden: true
+  LifecycleStatusText;
+
+  @UI.hidden: true
+  BillingStatusText;
+
+  @UI.hidden: true
+  DeliveryStatusText;
+
+  @UI.hidden: true
+  StatusCriticality;
+}

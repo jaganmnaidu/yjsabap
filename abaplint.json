@@ -21,6 +21,7 @@
   },
   "rules": {
     "parser_error": true,
+    "cds_parser_error": true,
     "check_syntax": true,
     "unknown_types": true
   }

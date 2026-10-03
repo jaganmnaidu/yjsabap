@@ -1,0 +1,6 @@
+@EndUserText.label: 'Open Sales Orders'
+@ObjectModel.leadingEntity.name: 'YJS_I_OPENSALESORDER'
+define service YJS_UI_OpenSalesOrder {
+  expose YJS_I_OpenSalesOrder as OpenSalesOrder;
+  expose YJS_I_SOCustomerVH   as CustomerVH;
+}
