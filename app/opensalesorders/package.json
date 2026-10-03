@@ -1,0 +1,16 @@
+{
+  "name": "yjs-opensalesorders",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Open Sales Orders - SAP Fiori elements List Report on YJS_UI_OPENSALESORDER_O4",
+  "scripts": {
+    "start": "fiori run --open \"index.html\"",
+    "build": "ui5 build preload --config=ui5.yaml --clean-dest",
+    "deploy": "npm run build && fiori deploy --config ui5-deploy.yaml && rimraf archive.zip"
+  },
+  "devDependencies": {
+    "@sap/ux-ui5-tooling": "1",
+    "@ui5/cli": "^4",
+    "rimraf": "^6"
+  }
+}

@@ -1,0 +1,24 @@
+specVersion: "4.0"
+metadata:
+  name: yjs.opensalesorders
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    # Uploads the built app to the A4H system as BSP application YJS_OPENSO
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://localhost:50000
+          client: "001"
+        app:
+          name: YJS_OPENSO
+          description: Open Sales Orders
+          package: $YJS_OOP_SALESORDER
+          transport: ""
+        exclude:
+          - /test/

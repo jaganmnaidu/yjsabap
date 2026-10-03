@@ -1,0 +1,26 @@
+specVersion: "4.0"
+metadata:
+  name: yjs.opensalesorders
+type: application
+server:
+  customMiddleware:
+    # Forwards /sap requests to the A4H container and loads SAPUI5 from the CDN
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: http://localhost:50000
+            client: "001"
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
