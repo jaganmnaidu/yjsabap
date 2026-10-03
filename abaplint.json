@@ -7,6 +7,12 @@
       "url": "https://github.com/abaplint/deps",
       "folder": "/deps",
       "files": "/src/**/*.*"
+    },
+    {
+      "url": "https://github.com/SAP-samples/abap-platform-refscen-flight",
+      "branch": "ABAP-platform-2025",
+      "folder": "/flight",
+      "files": "/src/**/*.*"
     }
   ],
   "syntax": {

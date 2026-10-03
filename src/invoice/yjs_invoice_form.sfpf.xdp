@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="AdobeLiveCycleDesigner_V11.0.1.20160812.1.925753_SAP" APIVersion="3.6.16186.0"?><xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2026-10-03T12:00:00Z" uuid="6b1f2c3e-9a4d-4e8b-b7c1-2f5d8e0a4c61">
+<template xmlns:xliff="urn:oasis:names:tc:xliff:document:1.1" xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
+   <?formServer defaultPDFRenderFormat acrobat10.0dynamic?>
+   <subform layout="tb" locale="en_US" name="data" restoreState="auto">
+      <pageSet>
+         <pageArea id="Page1" name="Page1">
+            <contentArea h="252mm" w="180mm" x="15mm" y="12mm"/>
+            <medium long="297mm" short="210mm" stock="a4"/>
+            <draw name="FooterLine" x="15mm" y="270mm" w="180mm" h="0mm">
+               <value>
+                  <line>
+                     <edge thickness="0.2mm">
+                        <color value="160,160,160"/>
+                     </edge>
+                  </line>
+               </value>
+            </draw>
+            <draw name="FooterText" x="15mm" y="272mm" w="180mm" h="6mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Thank you for travelling with us. Please quote the invoice number with your payment.</text>
+               </value>
+               <font typeface="Arial" size="8pt">
+                  <fill>
+                     <color value="110,110,110"/>
+                  </fill>
+               </font>
+               <para hAlign="center" vAlign="middle"/>
+            </draw>
+            <?templateDesigner expand 1?></pageArea>
+         <?templateDesigner expand 1?></pageSet>
+
+      <!-- ===================== Header: agency, invoice data, bill-to ===================== -->
+      <subform name="Header" layout="position" w="180mm" h="86mm">
+         <bind match="none"/>
+
+         <!-- Agency (seller) -->
+         <field name="AGENCY_NAME" x="0mm" y="0mm" w="100mm" h="8mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="14pt" weight="bold">
+               <fill>
+                  <color value="31,56,100"/>
+               </fill>
+            </font>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_NAME"/>
+         </field>
+         <field name="AGENCY_STREET" x="0mm" y="9mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_STREET"/>
+         </field>
+         <field name="AGENCY_CITY_LINE" x="0mm" y="14mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_CITY_LINE"/>
+         </field>
+         <field name="AGENCY_COUNTRY" x="0mm" y="19mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_COUNTRY"/>
+         </field>
+         <field name="AGENCY_PHONE" x="0mm" y="25mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <caption reserve="14mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Phone</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_PHONE"/>
+         </field>
+         <field name="AGENCY_EMAIL" x="0mm" y="30mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <caption reserve="14mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Email</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_EMAIL"/>
+         </field>
+         <field name="AGENCY_WEB" x="0mm" y="35mm" w="100mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <caption reserve="14mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Web</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="$.IS_HEADER.AGENCY_WEB"/>
+         </field>
+
+         <!-- Title and invoice data -->
+         <draw name="Title" x="105mm" y="0mm" w="75mm" h="11mm">
+            <ui>
+               <textEdit/>
+            </ui>
+            <value>
+               <text>INVOICE</text>
+            </value>
+            <font typeface="Arial" size="22pt" weight="bold">
+               <fill>
+                  <color value="31,56,100"/>
+               </fill>
+            </font>
+            <para hAlign="right" vAlign="middle"/>
+         </draw>
+         <field name="TRAVEL_ID" x="105mm" y="14mm" w="75mm" h="5.5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="32mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Invoice No.</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="$.IS_HEADER.TRAVEL_ID"/>
+         </field>
+         <field name="INVOICE_DATE" x="105mm" y="19.5mm" w="75mm" h="5.5mm">
+            <ui>
+               <dateTimeEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </dateTimeEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="32mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Invoice date</text>
+               </value>
+            </caption>
+            <value>
+               <date/>
+            </value>
+            <format>
+               <picture>date{DD MMM YYYY}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.INVOICE_DATE"/>
+         </field>
+         <field name="CUSTOMER_ID" x="105mm" y="25mm" w="75mm" h="5.5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="32mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Customer No.</text>
+               </value>
+            </caption>
+            <bind match="dataRef" ref="$.IS_HEADER.CUSTOMER_ID"/>
+         </field>
+         <field name="BEGIN_DATE" x="105mm" y="30.5mm" w="75mm" h="5.5mm">
+            <ui>
+               <dateTimeEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </dateTimeEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="32mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Travel from</text>
+               </value>
+            </caption>
+            <value>
+               <date/>
+            </value>
+            <format>
+               <picture>date{DD MMM YYYY}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.BEGIN_DATE"/>
+         </field>
+         <field name="END_DATE" x="105mm" y="36mm" w="75mm" h="5.5mm">
+            <ui>
+               <dateTimeEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </dateTimeEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="32mm">
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Travel to</text>
+               </value>
+            </caption>
+            <value>
+               <date/>
+            </value>
+            <format>
+               <picture>date{DD MMM YYYY}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.END_DATE"/>
+         </field>
+
+         <draw name="HeaderLine" x="0mm" y="45mm" w="180mm" h="0mm">
+            <value>
+               <line>
+                  <edge thickness="0.3mm">
+                     <color value="31,56,100"/>
+                  </edge>
+               </line>
+            </value>
+         </draw>
+
+         <!-- Bill to (customer) -->
+         <draw name="BillToLabel" x="0mm" y="50mm" w="90mm" h="5mm">
+            <ui>
+               <textEdit/>
+            </ui>
+            <value>
+               <text>BILL TO</text>
+            </value>
+            <font typeface="Arial" size="8pt" weight="bold">
+               <fill>
+                  <color value="110,110,110"/>
+               </fill>
+            </font>
+            <para vAlign="middle"/>
+         </draw>
+         <field name="CUSTOMER_NAME" x="0mm" y="56mm" w="95mm" h="6mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="11pt" weight="bold"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CUSTOMER_NAME"/>
+         </field>
+         <field name="CUST_STREET" x="0mm" y="62mm" w="95mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CUST_STREET"/>
+         </field>
+         <field name="CUST_CITY_LINE" x="0mm" y="67mm" w="95mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CUST_CITY_LINE"/>
+         </field>
+         <field name="CUST_COUNTRY" x="0mm" y="72mm" w="95mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CUST_COUNTRY"/>
+         </field>
+         <field name="CUST_EMAIL" x="0mm" y="77mm" w="95mm" h="5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CUST_EMAIL"/>
+         </field>
+
+         <!-- Trip description -->
+         <draw name="TripLabel" x="105mm" y="50mm" w="75mm" h="5mm">
+            <ui>
+               <textEdit/>
+            </ui>
+            <value>
+               <text>TRIP</text>
+            </value>
+            <font typeface="Arial" size="8pt" weight="bold">
+               <fill>
+                  <color value="110,110,110"/>
+               </fill>
+            </font>
+            <para vAlign="middle"/>
+         </draw>
+         <field name="DESCRIPTION" x="105mm" y="56mm" w="75mm" h="16mm">
+            <ui>
+               <textEdit multiLine="1">
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="top"/>
+            <bind match="dataRef" ref="$.IS_HEADER.DESCRIPTION"/>
+         </field>
+         <?templateDesigner expand 1?></subform>
+
+      <!-- ===================== Line items (one row per booking) ===================== -->
+      <subform name="Items" layout="table" columnWidths="18mm 26mm 50mm 22mm 28mm 26mm 10mm" w="180mm">
+         <bind match="none"/>
+         <subform name="HeaderRow" layout="row">
+            <assist role="TH"/>
+            <border>
+               <edge presence="hidden"/>
+               <fill>
+                  <color value="31,56,100"/>
+               </fill>
+            </border>
+            <draw name="ColBooking" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Booking</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <draw name="ColDate" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Flight date</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <draw name="ColAirline" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Airline</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <draw name="ColFlight" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Flight</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <draw name="ColRoute" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Route</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <draw name="ColPrice" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text>Price</text>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold">
+                  <fill>
+                     <color value="255,255,255"/>
+                  </fill>
+               </font>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para hAlign="right" vAlign="middle"/>
+            </draw>
+            <draw name="ColCurrency" h="7mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <text/>
+               </value>
+               <font typeface="Arial" size="9pt" weight="bold"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+            </draw>
+            <?templateDesigner expand 1?></subform>
+         <subform name="Row" layout="row">
+            <occur min="0" max="-1"/>
+            <bind match="dataRef" ref="$.IT_ITEMS.DATA[*]"/>
+            <border>
+               <edge presence="hidden"/>
+               <edge presence="hidden"/>
+               <edge thickness="0.1mm">
+                  <color value="200,200,200"/>
+               </edge>
+               <edge presence="hidden"/>
+            </border>
+            <field name="BOOKING_ID" h="6.5mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+               <bind match="dataRef" ref="$.BOOKING_ID"/>
+            </field>
+            <field name="FLIGHT_DATE" h="6.5mm">
+               <ui>
+                  <dateTimeEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </dateTimeEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+               <value>
+                  <date/>
+               </value>
+               <format>
+                  <picture>date{DD MMM YYYY}</picture>
+               </format>
+               <bind match="dataRef" ref="$.FLIGHT_DATE"/>
+            </field>
+            <field name="CARRIER_NAME" h="6.5mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+               <bind match="dataRef" ref="$.CARRIER_NAME"/>
+            </field>
+            <field name="FLIGHT_NO" h="6.5mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+               <bind match="dataRef" ref="$.FLIGHT_NO"/>
+            </field>
+            <field name="ROUTE" h="6.5mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para vAlign="middle"/>
+               <bind match="dataRef" ref="$.ROUTE"/>
+            </field>
+            <field name="FLIGHT_PRICE" h="6.5mm">
+               <ui>
+                  <numericEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </numericEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1.5mm" rightInset="1.5mm"/>
+               <para hAlign="right" vAlign="middle"/>
+               <value>
+                  <decimal fracDigits="2"/>
+               </value>
+               <format>
+                  <picture>num{z,zzz,zzz,zz9.99}</picture>
+               </format>
+               <bind match="dataRef" ref="$.FLIGHT_PRICE"/>
+            </field>
+            <field name="CURRENCY_CODE" h="6.5mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Arial" size="9pt"/>
+               <margin leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+               <bind match="dataRef" ref="$.CURRENCY_CODE"/>
+            </field>
+            <?templateDesigner expand 1?></subform>
+         <?templateDesigner expand 1?></subform>
+
+      <!-- ===================== Totals ===================== -->
+      <subform name="Totals" layout="position" w="180mm" h="28mm">
+         <bind match="none"/>
+         <field name="BOOKING_FEE" x="90mm" y="4mm" w="68mm" h="5.5mm">
+            <ui>
+               <numericEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </numericEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="40mm">
+               <font typeface="Arial" size="9pt"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Booking fee</text>
+               </value>
+            </caption>
+            <value>
+               <decimal fracDigits="2"/>
+            </value>
+            <format>
+               <picture>num{z,zzz,zzz,zz9.99}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.BOOKING_FEE"/>
+         </field>
+         <field name="CurrencyFee" x="159.5mm" y="4mm" w="20mm" h="5.5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CURRENCY_CODE"/>
+         </field>
+         <field name="FLIGHTS_TOTAL" x="90mm" y="10mm" w="68mm" h="5.5mm">
+            <ui>
+               <numericEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </numericEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="40mm">
+               <font typeface="Arial" size="9pt"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Flights &amp; supplements</text>
+               </value>
+            </caption>
+            <value>
+               <decimal fracDigits="2"/>
+            </value>
+            <format>
+               <picture>num{z,zzz,zzz,zz9.99}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.FLIGHTS_TOTAL"/>
+         </field>
+         <field name="CurrencyFlights" x="159.5mm" y="10mm" w="20mm" h="5.5mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="9pt"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CURRENCY_CODE"/>
+         </field>
+         <draw name="TotalLine" x="90mm" y="17mm" w="90mm" h="0mm">
+            <value>
+               <line>
+                  <edge thickness="0.3mm">
+                     <color value="31,56,100"/>
+                  </edge>
+               </line>
+            </value>
+         </draw>
+         <field name="TOTAL_AMOUNT" x="90mm" y="19mm" w="68mm" h="7mm">
+            <ui>
+               <numericEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </numericEdit>
+            </ui>
+            <font typeface="Arial" size="11pt" weight="bold"/>
+            <para hAlign="right" vAlign="middle"/>
+            <caption reserve="40mm">
+               <font typeface="Arial" size="11pt" weight="bold"/>
+               <para vAlign="middle"/>
+               <value>
+                  <text>Total amount</text>
+               </value>
+            </caption>
+            <value>
+               <decimal fracDigits="2"/>
+            </value>
+            <format>
+               <picture>num{z,zzz,zzz,zz9.99}</picture>
+            </format>
+            <bind match="dataRef" ref="$.IS_HEADER.TOTAL_AMOUNT"/>
+         </field>
+         <field name="CurrencyTotal" x="159.5mm" y="19mm" w="20mm" h="7mm">
+            <ui>
+               <textEdit>
+                  <border presence="hidden"/>
+                  <margin/>
+               </textEdit>
+            </ui>
+            <font typeface="Arial" size="11pt" weight="bold"/>
+            <para vAlign="middle"/>
+            <bind match="dataRef" ref="$.IS_HEADER.CURRENCY_CODE"/>
+         </field>
+         <?templateDesigner expand 1?></subform>
+
+      <draw name="PaymentNote" w="180mm" h="10mm">
+         <ui>
+            <textEdit/>
+         </ui>
+         <value>
+            <text>Payment is due within 14 days of the invoice date. Booking prices are shown in the airline's currency; totals include supplements and are converted to the invoice currency.</text>
+         </value>
+         <font typeface="Arial" size="8pt">
+            <fill>
+               <color value="110,110,110"/>
+            </fill>
+         </font>
+         <para vAlign="top"/>
+      </draw>
+      <proto/>
+      <desc>
+         <text name="version">11.0.1.20160812.1.925753.903801</text>
+      </desc>
+      <?templateDesigner expand 1?></subform>
+   <?templateDesigner DefaultPreviewDynamic 1?>
+   <?templateDesigner DefaultRunAt client?>
+   <?templateDesigner Grid show:1, snap:1, units:2, color:ff8080, origin:(0,0), interval:(100000,100000)?>
+   <?templateDesigner FormTargetVersion 33?>
+   <?templateDesigner WidowOrphanControl 0?>
+   <?templateDesigner DefaultCaptionFontSettings face:Arial;size:9;weight:normal;style:normal?>
+   <?templateDesigner DefaultValueFontSettings face:Arial;size:9;weight:normal;style:normal?>
+   <?templateDesigner DefaultLanguage JavaScript?>
+   <?acrobat JavaScript strictScoping?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?>
+   <?templateDesigner Zoom 100?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <destination>pdf</destination>
+      <pdf>
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <destination>pdf</destination>
+      <pdf>
+         <fontInfo/>
+         <version>1.7</version>
+         <adobeExtensionLevel>8</adobeExtensionLevel>
+      </pdf>
+      <common>
+         <data>
+            <xsl>
+               <uri/>
+            </xsl>
+            <outputXSL>
+               <uri/>
+            </outputXSL>
+         </data>
+      </common>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+</config>
+<connectionSet xmlns="http://www.xfa.org/schema/xfa-connection-set/2.8/">
+   <xsdConnection dataDescription="data" name="YJS_INVOICE_FORM">
+      <uri/>
+      <rootElement>data</rootElement>
+   </xsdConnection>
+</connectionSet>
+<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+   <xfa:data xfa:dataNode="dataGroup"/>
+   <dd:dataDescription xmlns:dd="http://ns.adobe.com/data-description/" dd:name="data">
+      <data>
+         <IS_HEADER>
+            <TRAVEL_ID/>
+            <INVOICE_DATE/>
+            <DESCRIPTION/>
+            <BEGIN_DATE/>
+            <END_DATE/>
+            <CUSTOMER_ID/>
+            <CUSTOMER_NAME/>
+            <CUST_STREET/>
+            <CUST_CITY_LINE/>
+            <CUST_COUNTRY/>
+            <CUST_EMAIL/>
+            <AGENCY_NAME/>
+            <AGENCY_STREET/>
+            <AGENCY_CITY_LINE/>
+            <AGENCY_COUNTRY/>
+            <AGENCY_PHONE/>
+            <AGENCY_EMAIL/>
+            <AGENCY_WEB/>
+            <BOOKING_FEE/>
+            <FLIGHTS_TOTAL/>
+            <TOTAL_AMOUNT/>
+            <CURRENCY_CODE/>
+         </IS_HEADER>
+         <IT_ITEMS>
+            <DATA dd:maxOccur="-1">
+               <BOOKING_ID/>
+               <FLIGHT_DATE/>
+               <CARRIER_NAME/>
+               <FLIGHT_NO/>
+               <ROUTE/>
+               <FLIGHT_PRICE/>
+               <CURRENCY_CODE/>
+            </DATA>
+         </IT_ITEMS>
+      </data>
+   </dd:dataDescription>
+</xfa:datasets>
+</xdp:xdp>
