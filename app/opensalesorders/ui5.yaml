@@ -8,7 +8,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false
+        ignoreCertErrors: false
         ui5:
           path:
             - /resources
