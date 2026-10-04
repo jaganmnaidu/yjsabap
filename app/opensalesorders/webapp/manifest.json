@@ -15,7 +15,7 @@
     "description": "{{appDescription}}",
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata4/sap/yjs_ui_opensalesorder_o4/srvd/sap/yjs_ui_opensalesorder/0001/",
+        "uri": "/sap/opu/odata4/sap/yjs_ui_opensalesorder_o4/srvd/sap/yjs_ui_opensalesorder_o4/0001/",
         "type": "OData",
         "settings": {
           "odataVersion": "4.0"
